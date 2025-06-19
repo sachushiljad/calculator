@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">🧮 Flask Calculator</h2>
+                        <form method="POST">
+                            <div class="mb-3">
+                                <input type="number" class="form-control" name="num1" step="any" placeholder="First Number" required>
+                            </div>
+                            <div class="mb-3">
+                                <select class="form-select" name="operation">
+                                    <option value="add">➕ Add</option>
+                                    <option value="subtract">➖ Subtract</option>
+                                    <option value="multiply">✖ Multiply</option>
+                                    <option value="divide">➗ Divide</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <input type="number" class="form-control" name="num2" step="any" placeholder="Second Number" required>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Calculate</button>
+                            </div>
+                        </form>
+                        {% if result is not none %}
+                            <div class="alert alert-info text-center mt-4">
+                                <strong>Result:</strong> {{ result }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
