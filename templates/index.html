@@ -1,23 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Calculator</title>
+    <title>Stylish Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calculator {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        .calculator h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .calculator input,
+        .calculator select,
+        .calculator button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .calculator button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .calculator button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #222;
+        }
+    </style>
 </head>
 <body>
-  <h2>Simple Calculator</h2>
-  <form method="post">
-    <input name="num1" type="number" step="any" required>
-    <select name="operation">
-      <option value="add">+</option>
-      <option value="subtract">-</option>
-      <option value="multiply">*</option>
-      <option value="divide">/</option>
-    </select>
-    <input name="num2" type="number" step="any" required>
-    <button type="submit">Calculate</button>
-  </form>
-  {% if result is not none %}
-    <h3>Result: {{ result }}</h3>
-  {% endif %}
+    <div class="calculator">
+        <h2>Simple Calculator</h2>
+        <form method="post">
+            <input name="num1" type="number" step="any" placeholder="Enter first number" required>
+            <select name="operation" required>
+                <option value="add">Addition (+)</option>
+                <option value="subtract">Subtraction (-)</option>
+                <option value="multiply">Multiplication (×)</option>
+                <option value="divide">Division (÷)</option>
+            </select>
+            <input name="num2" type="number" step="any" placeholder="Enter second number" required>
+            <button type="submit">Calculate</button>
+        </form>
+        {% if result is not none %}
+            <div class="result">
+                <strong>Result:</strong> {{ result }}
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>
